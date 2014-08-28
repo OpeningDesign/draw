@@ -111,7 +111,7 @@ update_active_color();
 var send_paths_timer;
 var timer_is_active = false;
 var paper_object_count = 0;
-var activeTool = "draw";
+var activeTool = "pencil";
 var mouseTimer = 0; // used for getting if the mouse is being held down but not dragged IE when bringin up color picker
 var mouseHeld; // global timer for if mouse is held.
 
