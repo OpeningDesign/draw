@@ -11,7 +11,7 @@ Demo
 
 Installation
 ------------
-  1. Install Requirements. ``sudo apt-get install libcairo2-dev``
+  1. Install Requirements. ``sudo apt-get update && sudo apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++``
   2. Install EtherDraw `` git clone git://github.com/JohnMcLear/draw.git ``
   3. Enter the EtherDraw folder `` cd draw ``
   4. Run EtherDraw `` bin/run.sh `` 

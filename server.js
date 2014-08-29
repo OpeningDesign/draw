@@ -252,7 +252,7 @@ function subscribe(socket, data) {
     // this project as each room has its own project. We share the View
     // object but that just helps it "draw" stuff to the invisible server
     // canvas.
-    projects[room].project = new paper.Project(paper.projects[0].view);
+    projects[room].project = new paper.Project();
     projects[room].external_paths = {};
     loadFromDB(room, socket);
   } else { // Project exists in memory, no need to load from database
