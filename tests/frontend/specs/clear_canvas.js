@@ -5,7 +5,7 @@ describe("Clear canvas", function(){
       path,
       reloaded = false;
 
-  it("creates a pad", function(done) {
+  it("creates a drawing", function(done) {
     padName = helper.newPad(done);
     this.timeout(60000);
   });
@@ -33,7 +33,7 @@ describe("Clear canvas", function(){
     }, 500);
   });
   
-  it("reloads same pad", function(done) {
+  it("reloads same drawing", function(done) {
     this.timeout(60000);
     padName = helper.newPad(function() {
       var padsEqual = padName == oldPadName;
@@ -93,7 +93,7 @@ describe("Clear canvas", function(){
   
   reloaded = false;
   
-  it("reloads same pad", function(done) {
+  it("reloads same drawing", function(done) {
     this.timeout(60000);
     padName = helper.newPad(function() {
       var padsEqual = padName == oldPadName;

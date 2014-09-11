@@ -7,7 +7,7 @@ Fast, light weight, easy to maintain.  Try the [demo] (http://draw.etherpad.org)
 
 Demo
 ----
-[Etherdraw Demo site](http://draw.etherpad.org) hosted by [Joyent](http://joyent.com)
+[Etherdraw Demo site](http://draw.etherpad.org)
 
 Installation
 ------------
@@ -20,13 +20,15 @@ Installation
 Requirements
 ------------
  * [NodeJS v8+] (http://nodejs.org/)
- * [Git] (http://git.org)
+ * Lib Cairo
+ * Lib Jpeg
+ * Lib Gif
+ * Chuck Norris dreams in fists
 
 Thanks to..
 -----------
- * Isaac et al @ Node Team
- * Guillermo et al @ SocketIO Team
- * TJ et al @ Express Team
+ * Isaac et al @ Node Team (Joyent)
+ * Guillermo et al @ SocketIO Team (Automattic)
  * Canvas Team
  * PaperJS Team
 

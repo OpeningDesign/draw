@@ -18,7 +18,7 @@ db.init(function (err) {
     for (var i = 0; i < length; i++){
       var room = rooms[i];
       projects[room] = {};
-      projects[room].project = new paper.Project(paper.projects[0].view);
+      projects[room].project = new paper.Project();
       projects[room].external_paths = {};
       console.log("attempting to load room # ", i);
       loadFromDB(room);
@@ -39,7 +39,7 @@ function loadFromDB(room) {
         project.importJSON(value.project);
         console.log("Loaded room ", room);
         projects[room].destroy; // remove it
-        console.log("Destroyed room", room);
+        // console.log("Destroyed room", room);
       }
     });
   }
