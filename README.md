@@ -2,10 +2,8 @@
 
 
 ## A web-based, 'really' real-time collaborative drawing tool.
-Collaborative real-time drawing, sketching & painting
 
 [sketch.openingdesign.com](http://sketch.openingdesign.com/)
-
 
 
 Thanks to..
