@@ -1,6 +1,3 @@
-# Developer Guidelines
-(Please talk to people on the mailing list before you change this page, see our section on [how to get in touch](https://github.com/ether/etherpad-lite#get-in-touch))
-
 ## Important note for pull requests
 **Pull requests should issued against the develop branch**.  We never pull directly into master.
 
@@ -12,7 +9,7 @@ To make sure everybody is going in the same direction:
 * easy to integrate into other apps, but also usable as standalone
 * using less resources on server side
 * extensible, as much functionality should be extendable with plugins so changes don't have to be done in core
-Also, keep it maintainable. We don't wanna end ob as the monster Etherpad was!
+Also, keep it maintainable.
 
 ## How to work with git?
 * Don't work in your master branch.

@@ -5,10 +5,24 @@
 
 [sketch.openingdesign.com](http://sketch.openingdesign.com/)
 
+Installation
+------------
+  1. Install Requirements. ``sudo apt-get update && sudo apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++``
+  2. Install EtherDraw `` git clone git://github.com/JohnMcLear/draw.git ``
+  3. Enter the EtherDraw folder `` cd draw ``
+  4. Run EtherDraw `` bin/run.sh `` 
+  5. Make a drawing!  Open your browser and visit `` http://127.0.0.1:9002 ``
+
+Requirements
+------------
+ * [NodeJS > v12] (http://nodejs.org/)
+ * Lib Cairo
+ * Lib Jpeg
+ * Lib Gif
+ * Chuck Norris dreams in fists
 
 Thanks to..
 -----------
- * [John McLear](https://github.com/JohnMcLear)
  * Isaac et al @ Node Team (Joyent)
  * Guillermo et al @ SocketIO Team (Automattic)
  * Canvas Team

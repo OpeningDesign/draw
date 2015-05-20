@@ -24,7 +24,36 @@ $(document).ready(function() {
   $('#embedinput').val("<iframe name='embed_readwrite' src='" + drawurl + "?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false' width=600 height=400></iframe>"); // write it to the embed input
   $('#linkinput').val(drawurl); // and the share/link input
   $('#drawTool > a').css({background:"#eee"}); // set the drawtool css to show it as active
+
+  $('#myCanvas').bind('mousewheel', function(ev){
+    scrolled(ev.pageX, ev.pageY, -ev.wheelDelta);
+  });
+
+  $('#myCanvas').bind('DOMMouseScroll', function(ev){
+    scrolled(ev.pageX, ev.pageY, ev.detail);
+  });
+
+
 });
+
+var scaleFactor = 1.1;
+function scrolled(x, y, delta) {
+  // Far too buggy for now
+  /*
+  console.log("Scrolling");
+  var pt = new Point(x, y),
+  scale = 1;
+  if(delta < 0) {
+    scale *= scaleFactor;
+  } else if(delta > 0) {
+    scale /= scaleFactor;
+  }
+  //view.scale(scale, pt);
+  $('#myCanvas').
+  view.draw();
+  */
+}
+
 
 $('#activeColorSwatch').css('background-color', $('.colorSwatch.active').css('background-color'));
 
@@ -102,7 +131,21 @@ update_active_color();
 
 
 
+$('#colorToggle').on('click', function() {
+  $('#mycolorpicker').toggle();
+});
 
+$('#clearImage').click(function(){
+  var p = confirm("Are you sure you want to clear the drawing for everyone?");
+  if(p){
+    clearCanvas();
+    socket.emit('canvas:clear', room);
+  }
+});
+
+$('.toggleBackground').click(function(){
+  $('#myCanvas').toggleClass('whiteBG');
+});
 
 // --------------------------------- 
 // DRAWING EVENTS
@@ -116,6 +159,7 @@ var mouseTimer = 0; // used for getting if the mouse is being held down but not 
 var mouseHeld; // global timer for if mouse is held.
 
 function onMouseDown(event) {
+  if(event.which === 2) return; // If it's middle mouse button do nothing -- This will be reserved for panning in the future.
   $('.popup').fadeOut();
 
   // Ignore middle or right mouse button clicks for now
@@ -605,6 +649,9 @@ function uploadImage(file) {
 
 // --------------------------------- 
 // SOCKET.IO EVENTS
+socket.on('settings', function(settings){
+  processSettings(settings);
+});
 
 
 socket.on('draw:progress', function (artist, data) {
@@ -776,3 +823,16 @@ progress_external_path = function (points, artist) {
   view.draw();
 
 };
+
+function processSettings(settings){
+
+  $.each(settings, function(k,v){
+
+    // Handle tool changes
+    if(k === "tool"){
+      $('.buttonicon-'+v).click();
+    }
+
+  })
+
+}

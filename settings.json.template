@@ -6,7 +6,7 @@
 
 {
   //IP and port which etherpad should bind at
-  "ip": "0.0.0.0",
+  "ip" : "0.0.0.0",
   "port" : 9002,
 
   //The Type of the database. You can choose between dirty, postgres, sqlite and mysql
@@ -15,16 +15,27 @@
   //the database specific settings
   "dbSettings" : {
      "filename" : "var/dirty.db"
-  }
-                 
+  },
+
   /* An Example of MySQL Configuration
   "dbType" : "mysql",
   "dbSettings" : {
     "user"    : "root", 
     "host"    : "localhost", 
     "password": "", 
-    "database": "store"
-  }
+    "database": "etherdraw"
+  },
+  */
+
+  /* The default selected tool - 'pencil', 'brush', 'select' */
+  "tool": "brush",
+                 
+  /* Example SSL Configuration
+    "ssl" : {
+      "key": "/path/to/key.key",
+      "cert": "/path/to/cert.crt"
+    }
   */
 
 }
+
