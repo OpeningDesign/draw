@@ -20,6 +20,9 @@ if [ "$(id -u)" -eq 0 ]; then
    fi
 fi
 
+#Clean the current environment
+rm -rf node_modules
+
 #prepare the enviroment
 bin/installDeps.sh $* || exit 1
 

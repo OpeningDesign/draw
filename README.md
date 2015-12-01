@@ -15,18 +15,10 @@ Installation
 
 Requirements
 ------------
- * [NodeJS > v12] (http://nodejs.org/)
+ * [NodeJS] (http://nodejs.org/)
  * Lib Cairo
  * Lib Jpeg
  * Lib Gif
- * Chuck Norris dreams in fists
-
-Thanks to..
------------
- * Isaac et al @ Node Team (Joyent)
- * Guillermo et al @ SocketIO Team (Automattic)
- * Canvas Team
- * PaperJS Team
 
 License
 -------

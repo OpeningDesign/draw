@@ -320,6 +320,19 @@ input[type=checkbox] {
   display: none;
   z-index: 500;
 }
+
+#canvasContainer{
+  position:absolute;
+  top:37px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  overflow: hidden;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  background-position: 0px 37px;
+}
+
 @media screen and (max-width: 600px) { 
     .toolbar ul li.separator {
       display: none;
@@ -355,6 +368,9 @@ input[type=checkbox] {
     }
     #editorcontainer {
       margin-bottom: 33px
+    }
+    #canvasContainer {
+      bottom: 32px;
     }
     .toolbar ul.menu_right {
       background: #f7f7f7;
@@ -443,18 +459,10 @@ input[type=checkbox] {
   cursor:move;
 }
 
-#canvasContainer{
-  position:absolute;
-  top:0px;
-  left:0px;
-  right:0px;
-  bottom:0px;
-}
-
 #myCanvas{
   position:absolute;
   cursor:hand;
-  top:37px;
+  top:0px;
   left:0px;
   right:0px;
   bottom:0px;
