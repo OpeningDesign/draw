@@ -1,9 +1,14 @@
-![alt text](https://f.cloud.github.com/assets/220864/730169/feb98294-e24b-11e2-903d-b3cbc68f3a48.gif "Action Video")
-
+![Demo GIF](https://cloud.githubusercontent.com/assets/1755886/11715310/ccc7080e-9f38-11e5-834e-4937e89801f6.gif)
 
 ## A web-based, 'really' real-time collaborative drawing tool.
 
 [sketch.openingdesign.com](http://sketch.openingdesign.com/)
+
+Use
+----
+- The canvas can be scaled using either the mouse wheel, or by a two-finger pinch gesture
+- The canvas can be panned by using either middle-click and drag (only on Chrome), CTRL + left-click and drag, or a two-finger drag
+- To create a named canvas goto <url>/d/<name>, eg http://0.0.0.0:9002/d/coolstuff
 
 Installation
 ------------
@@ -23,7 +28,3 @@ Requirements
 License
 -------
 Apache 2 License
-
-Donations
----------
-Donate to the [Etherpad Foundation] (http://etherpad.org/#links)
