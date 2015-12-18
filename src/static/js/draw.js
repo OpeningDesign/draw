@@ -19,7 +19,7 @@ function pickColor(color) {
  */
 function positionPickerInCanvas(cursor) {
   var picker = $('#mycolorpicker');
-  
+
   // Determine best place for color picker so it isn't off the screen
   var pickerSize = new Point(picker.width(), picker.height());
   var windowSize = new Point($(window).width(), $(window).height());
@@ -37,13 +37,12 @@ function positionPickerInCanvas(cursor) {
   } else if (brSpace.x > pickerSize.x) {
     newPos.x = cursor.x + spacer.x;
   }
-  
+
   // Get the canvasContainer's position so we can make sure the picker
   // doesn't go outside of the canvasContainer (to keep it pretty)
   var minY = 10;
   // Buffer so we don't get too close to the bottom cause scroll bars
-  var bBuffer = Math.max(50, (windowSize.y - ($('#canvasContainer').position().top 
-      + $('#canvasContainer').height())) + 70);
+  var bBuffer = Math.max(50, (windowSize.y - ($('#canvasContainer').position().top + $('#canvasContainer').height())) + 70);
 
   // Favour having the picker in the middle of the cursor
   if (tlSpace.y > ((pickerSize.y / 2) + minY) && brSpace.y > ((pickerSize.y / 2) + bBuffer)) {
@@ -53,7 +52,7 @@ function positionPickerInCanvas(cursor) {
   } else if (brSpace.y < ((pickerSize.y / 2) + bBuffer) && tlSpace.y > (brSpace.y - (pickerSize.y + bBuffer))) {
     newPos.y = windowSize.y - (pickerSize.y + bBuffer);
   }
-  
+
   $('#mycolorpicker').css({
     "left": newPos.x,
     "top": newPos.y
@@ -78,7 +77,7 @@ function scaleCanvas(scale, scaleDiff, pos) {
 
   // Scale to a minimum 5%
   view.zoom = Math.max(0.05,
-      (scale === false ? view.zoom + scaleDiff : scale));
+    (scale === false ? view.zoom + scaleDiff : scale));
 
   view.draw();
 
@@ -90,7 +89,7 @@ function scaleCanvas(scale, scaleDiff, pos) {
   } else { // Center of canvas
     offset += new Point(view.bounds.width, view.bounds.height) / 2;
   }
-  
+
   var delta = focusPoint - offset;
 
   // Scroll the where the mousey is
@@ -121,8 +120,9 @@ function parseEditable(dom) {
       // Check for br elements using node.tagName
       if (this.tagName === 'BR') {
         text += "\n";
-      } else if ($(this).css('display') == 'block') { /** Chrome uses divs to
-          * do newlines, so check for all block elements as a catch all */
+      } else if ($(this).css('display') == 'block') {
+        /** Chrome uses divs to
+         * do newlines, so check for all block elements as a catch all */
         text += (text.endsWith("\n") ? '' : "\n") + parseEditable($(this)) + "\n";
       } else {
         text += parseEditable($(this));
@@ -159,7 +159,8 @@ function getCanvasCoverage(group) {
   }
 
   if (group.children.length !== 0) {
-    var i = 0, bounds = group.children[i].strokeBounds;
+    var i = 0,
+      bounds = group.children[i].strokeBounds;
 
     var min = bounds.point;
     var max = bounds.point + bounds.size;
@@ -186,7 +187,7 @@ function zoomToContents() {
   view.zoom = zoom;
   // Scroll to 0,0
   view.scrollBy(new Point((bounds.x - padding) - view.bounds.x,
-      (bounds.y - padding)- view.bounds.y));
+    (bounds.y - padding) - view.bounds.y));
   view.draw();
   updateCoordinates();
 }
@@ -270,7 +271,7 @@ $(document).ready(function() {
     if (event.originalEvent) {
       // Determine the new scale factor -ve for scaling up
       var mul;
-      switch(event.originalEvent.deltaMode) {
+      switch (event.originalEvent.deltaMode) {
         case 0: // Pixel
           mul = -0.002;
           break;
@@ -283,7 +284,7 @@ $(document).ready(function() {
       }
 
       delta = new Point(event.originalEvent.deltaX * mul,
-          event.originalEvent.deltaY * mul);
+        event.originalEvent.deltaY * mul);
 
       // Find the biggest scale
       if (Math.abs(delta.x) > Math.abs(delta.y)) {
@@ -303,7 +304,7 @@ $(document).ready(function() {
     }
   });
 
-  var drawingPNG = localStorage.getItem("drawingPNG"+room)
+  var drawingPNG = localStorage.getItem("drawingPNG" + room)
 
   // Temporarily set background as image from memory to improve UX
   $('#canvasContainer').css("background-image", 'url(' + drawingPNG + ')');
@@ -433,7 +434,7 @@ var textboxIdentifier = ':textbox:';
 function drawEditTextbox(point, content) {
   // Open a textbox
   $('#canvasContainer')
-      .append(textbox = $('<div class="textEditor" contenteditable></div>'));
+    .append(textbox = $('<div class="textEditor" contenteditable></div>'));
   // Move the textbox
   textbox.css({
     left: point.x,
@@ -469,7 +470,7 @@ function writeEditTextbox() {
         content: text,
         name: uid + textboxIdentifier + (++paper_object_count)
       };
-      
+
       paintTextbox(options);
       // Convert point to array
       options.point = [options.point.x, options.point.y];
@@ -477,7 +478,7 @@ function writeEditTextbox() {
 
       view.draw();
     }
-    
+
     textbox.remove();
     textbox = false;
   }
@@ -500,11 +501,8 @@ function editTextbox(item) {
   // Check if textbox is currently visible
   /// @TODO Update version of paper.js
   //if (!item.isInside(view.bounds)) {
-  if (item.bounds.point.x < view.bounds.point.x
-    || item.bounds.point.y < view.bounds.point.y
-    || (item.bounds.point.x + item.bounds.size.x) >
-    (view.bounds.point.x + view.bounds.size.x)
-    || (item.bounds.point.y + item.bounds.size.y) >
+  if (item.bounds.point.x < view.bounds.point.x || item.bounds.point.y < view.bounds.point.y || (item.bounds.point.x + item.bounds.size.x) >
+    (view.bounds.point.x + view.bounds.size.x) || (item.bounds.point.y + item.bounds.size.y) >
     (view.bounds.point.y + view.bounds.size.y)) {
     return false;
   }
@@ -531,7 +529,7 @@ function editTextbox(item) {
 
   // Get the current contents
   var contents = textPoint.content;
-  
+
   // Delete current textbox
   deleteItems(item);
 
@@ -564,10 +562,9 @@ function paintTextbox(options) {
     fillColor: options.color
   });
   textPoint.content = options.content;
-  
+
   // Make the rectangle the right size for the text
-  var size = new Point(textPoint.bounds.width, textPoint.bounds.height)
-      + (options.padding * 2);
+  var size = new Point(textPoint.bounds.width, textPoint.bounds.height) + (options.padding * 2);
   background.bounds.size = size;
 
   // Create a paper.Group to store everything in
@@ -629,7 +626,7 @@ var $opacity = $('#opacityRangeVal');
 var update_active_color = function() {
   var rgb_array = $('#activeColorSwatch').css('background-color');
 
-  if(rgb_array == undefined)rgb_array="rgba(0, 0, 0, 0)"; //default to white if there was an error
+  if (rgb_array == undefined) rgb_array = "rgba(0, 0, 0, 0)"; //default to white if there was an error
 
   $('#editbar').css("border-bottom", "solid 2px " + rgb_array);
 
@@ -701,7 +698,7 @@ var previousFingerSeparation; // Used to store how far apart the fingers were at
 var overItem;
 
 function onMouseDown(event) {
-    event.preventDefault();
+  event.preventDefault();
   if (event.which === 2) return; // If it's middle mouse button do nothing -- This will be reserved for panning in the future.
   $('.popup').fadeOut();
 
@@ -733,9 +730,7 @@ function onMouseDown(event) {
 
   // Pan - Middle click, click+shift or two finger touch for canvas moving
   // Will also handle scaling using pinch gestures
-  if (event.event.button == 1 
-      || (event.event.button == 0 && event.event.ctrlKey)
-      || (event.event.touches && event.event.touches.length == 2)) {
+  if (event.event.button == 1 || (event.event.button == 0 && event.event.ctrlKey) || (event.event.touches && event.event.touches.length == 2)) {
     previousPoint = getEventPoint(event.event, 'client');
     var canvas = $('#myCanvas');
     canvas.css('cursor', 'move');
@@ -746,7 +741,7 @@ function onMouseDown(event) {
       path = false;
       previousFingerSeparation = (new Point(
           event.event.touches[0].clientX, event.event.touches[0].clientY) -
-          new Point (event.event.touches[1].clientX, event.event.touches[1].clientY)
+        new Point(event.event.touches[1].clientX, event.event.touches[1].clientY)
       ).length;
     }
     return;
@@ -762,23 +757,23 @@ function onMouseDown(event) {
   mouseTimer = 0;
   if (!mouseHeld) {
     mouseHeld = setInterval(function() { // is the mouse being held and not dragged?
-    mouseTimer++;
-    if (mouseTimer > 3) {
-      mouseTimer = 0;
-      clearInterval(mouseHeld);
-      mouseHeld = undefined;
-      var picker = $('#mycolorpicker');
-      picker.toggle(); // show the color picker
-      if (picker.is(':visible')) {
-        // Get position of cursor
-        var point = getEventPoint(event.event, 'client');
-        var position = $('#myCanvas').position();
-        // Takeaway offset of canvas
-        point -= new Point(position.left, position.top);
-        positionPickerInCanvas(point);
+      mouseTimer++;
+      if (mouseTimer > 3) {
+        mouseTimer = 0;
+        clearInterval(mouseHeld);
+        mouseHeld = undefined;
+        var picker = $('#mycolorpicker');
+        picker.toggle(); // show the color picker
+        if (picker.is(':visible')) {
+          // Get position of cursor
+          var point = getEventPoint(event.event, 'client');
+          var position = $('#myCanvas').position();
+          // Takeaway offset of canvas
+          point -= new Point(position.left, position.top);
+          positionPickerInCanvas(point);
+        }
       }
-    }
-  }, 100);
+    }, 100);
   }
 
   if (activeTool == "draw" || activeTool == "pencil") {
@@ -841,9 +836,7 @@ function onMouseDrag(event) {
   /* Pan / Pinch zoom - Middle click, click+shift or two finger touch for
    * canvas moving and zooming if fingers are involved
    */
-  if (event.event.button == 1 
-      || (event.event.button == 0 && event.event.ctrlKey)
-      || (event.event.touches && event.event.touches.length == 2)) {
+  if (event.event.button == 1 || (event.event.button == 0 && event.event.ctrlKey) || (event.event.touches && event.event.touches.length == 2)) {
     // Calculate our own delta as the event delta is relative to the canvas
     var point = getEventPoint(event.event, 'client');
     var delta = (previousPoint - point) / view.zoom;
@@ -854,7 +847,7 @@ function onMouseDrag(event) {
     var newCenter = center + delta;
 
     var startBounds = view.bounds;
-  
+
     // Pretty scroll
     view.scrollBy(delta);
 
@@ -863,13 +856,13 @@ function onMouseDrag(event) {
 
     // Zoom if touching and breach the buffer
     if (event.event.touches) {
-      var separation =(new Point(
+      var separation = (new Point(
           event.event.touches[0].clientX, event.event.touches[0].clientY) -
-          new Point (event.event.touches[1].clientX, event.event.touches[1].clientY)
+        new Point(event.event.touches[1].clientX, event.event.touches[1].clientY)
       ).length;
 
       // Scale with a scaling factor (2) to make it nicer
-      scaleCanvas(false, (1 - (previousFingerSeparation / separation))/ 3, point);
+      scaleCanvas(false, (1 - (previousFingerSeparation / separation)) / 3, point);
 
       previousFingerSeparation = separation;
     }
@@ -970,9 +963,7 @@ function onMouseUp(event) {
   }
 
   // Pan - Middle click, click+shift or two finger touch for canvas moving
-  if (event.event.button == 1 
-      || (event.event.button == 0 && event.event.ctrlKey)
-      || (event.event.touches && fingers == 2)) {
+  if (event.event.button == 1 || (event.event.button == 0 && event.event.ctrlKey) || (event.event.touches && fingers == 2)) {
     $('#myCanvas').css('cursor', 'pointer');
     return;
   }
@@ -983,7 +974,7 @@ function onMouseUp(event) {
   if ((activeTool == "draw" || activeTool == "pencil") && path) {
     // Close the users path
     path.add(event.point);
-    
+
     path.closed = true;
     path.smooth();
     moveBelowTextboxes(path);
@@ -1001,7 +992,7 @@ function onMouseUp(event) {
     timer_is_active = false;
   } else if (activeTool == "text") {
     // @TODO Check if a text box was clicked on, if so edit it
-     if (!textboxClosed) {
+    if (!textboxClosed) {
       if (overItem && isaTextbox(overItem)) {
         editTextbox(overItem);
       } else if (!textbox) { // Create a new textbox if we're not editing one already
@@ -1010,8 +1001,8 @@ function onMouseUp(event) {
         // Make it relative to the #canvasContainer
         var containerPosition = $('#canvasContainer').position();
         point -= new Point(containerPosition.left,
-        containerPosition.top);
-        
+          containerPosition.top);
+
         drawEditTextbox(point);
       }
     }
@@ -1169,7 +1160,7 @@ $('#myCanvas').bind('dblclick', function(e) {
   if (event.button == 1) {
     zoomToContents();
   }
-  
+
   //Edit textbox
   //@TODO if (event.button === 0
   var item;
@@ -1271,7 +1262,7 @@ $('#textTool').on('click', function() {
 
 $('#zeroTool').on('click', function() {
   // Scroll back to 0,0
-  view.scrollBy(new Point(- view.bounds.x, - view.bounds.y));
+  view.scrollBy(new Point(-view.bounds.x, -view.bounds.y));
   updateCoordinates();
 });
 
@@ -1508,7 +1499,7 @@ socket.on('image:add', function(artist, data, position, name) {
 // Updates the active connections
 var $user_count = $('#online_count');
 
-function update_user_count(count) {  
+function update_user_count(count) {
   $user_count.text((count === 1) ? "1" : " " + count);
 }
 
@@ -1591,12 +1582,12 @@ function processSettings(settings) {
 }
 
 // Periodically save drawing
-setInterval(function(){
+setInterval(function() {
   saveDrawing();
 }, 1000);
 
-function saveDrawing(){
+function saveDrawing() {
   var canvas = document.getElementById('myCanvas');
   // Save image to localStorage
-  localStorage.setItem("drawingPNG"+room, canvas.toDataURL('image/png'));
+  localStorage.setItem("drawingPNG" + room, canvas.toDataURL('image/png'));
 }
