@@ -22,7 +22,7 @@ exports.paint = function(paper, options) {
     padding: 5,
     fontSize: 12,
     fillColor: new paper.Color(1, 0.8),
-    color: new paper.Color(0),
+    color: new paper.Color(0.5, 0, 0),
     point: new paper.Point(0, 0)
   }, options);
   
