@@ -547,7 +547,7 @@ function paintTextbox(options) {
     padding: 5,
     fontSize: 12,
     fillColor: new Color(1, 0.8),
-    color: new Color(0),
+    color: new Color("red"),
     point: new Point(0, 0)
   }, options);
 
