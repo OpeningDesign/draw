@@ -250,8 +250,8 @@ $(document).ready(function() {
 	// write it to the embed input
 	$('#linkinput').val(drawurl);
 	// and the share/link input
-	$('#drawTool > a').css({
-		background : "#eee"
+	$('#pencilTool > a').css({
+		background : "#ddd"
 	});
 	// set the drawtool css to show it as active
 
@@ -1227,7 +1227,7 @@ $('#pencilTool').on('click', function() {
 	});
 	// remove the backgrounds from other buttons
 	$('#pencilTool > a').css({
-		background : "#eee"
+		background : "#ddd"
 	});
 	// set the selecttool css to show it as active
 	activeTool = "pencil";
@@ -1240,7 +1240,7 @@ $('#drawTool').on('click', function() {
 	});
 	// remove the backgrounds from other buttons
 	$('#drawTool > a').css({
-		background : "#eee"
+		background : "#ddd"
 	});
 	// set the selecttool css to show it as active
 	activeTool = "draw";
@@ -1253,7 +1253,7 @@ $('#selectTool').on('click', function() {
 	});
 	// remove the backgrounds from other buttons
 	$('#selectTool > a').css({
-		background : "#eee"
+		background : "#ddd"
 	});
 	// set the selecttool css to show it as active
 	activeTool = "select";
@@ -1265,7 +1265,7 @@ $('#textTool').on('click', function() {
 	});
 	// remove the backgrounds from other buttons
 	$('#textTool > a').css({
-		background : "#eee"
+		background : "#ddd"
 	});
 	// set the texttool css to show it as active
 	activeTool = "text";
