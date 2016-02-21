@@ -631,7 +631,7 @@ var update_active_color = function() {
 	var rgb_array = $('#activeColorSwatch').css('background-color');
 
 	if (rgb_array == undefined)
-		rgb_array = "rgba(0, 0, 0, 0)";
+		rgb_array = "rgba(255, 0, 0, 0)";
 	//default to white if there was an error
 
 	$('#editbar').css("border-bottom", "solid 2px " + rgb_array);
