@@ -9,6 +9,7 @@ var settings = require('./src/util/Settings.js'),
     db = require('./src/util/db.js'),
     express = require("express"),
     paper = require('paper'),
+    merge = require('merge'),
     socket = require('socket.io'),
     async = require('async'),
     fs = require('fs'),
@@ -280,7 +281,7 @@ db.init(function(err) {
         delete removeTimeouts[room];
       }
 
-      var roomSettings = Object.assign({}, clientSettings);
+      var roomSettings = merge(true, clientSettings);
 
       if (typeof settings.editPassword === 'object') {
         roomSettings.protectedEdit = (typeof settings.editPassword[room] !== 'undefined');
