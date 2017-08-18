@@ -9,6 +9,24 @@
   "ip" : "0.0.0.0",
   "port" : 9002,
 
+  // Uncomment to remove rooms after a certain amount of time of inactivity.
+  // Value can either be just a number (for the number of seconds), or a
+  // a number and a unit (min, hr, or day).
+  // "removeUnused": "1day",
+
+  // Uncomment the following line to require the given password to be entered
+  // before all drawings can be edited
+  // "editPassword": "changeme",
+  // The edit password can also be an object containing room names and
+  // passwords as key/value pairs
+  // "editPassword": {
+  //  "protected": "protectedpassword"
+  // },
+  // Uncomment to add a timeout on authentication tokens. Value can either be
+  // just a number (for the number of seconds), or a number and a unit
+  // (min, hr, or day)
+  // "authenticationTimeout": "1day",
+
   //The Type of the database. You can choose between dirty, postgres, sqlite and mysql
   //You shouldn't use "dirty" for for anything else than testing or development
   "dbType" : "dirty",

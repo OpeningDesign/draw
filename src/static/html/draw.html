@@ -6,26 +6,26 @@
 		<link rel='stylesheet' href='/static/css/farbtastic.css'>
 		<script>
 			/*
-			 |@licstart  The following is the entire license notice for the
-			 JavaScript code in this page.|
+			|@licstart  The following is the entire license notice for the
+			JavaScript code in this page.|
 
-			 Copyright 2011 Peter Martischka, Primary Technology.
+			Copyright 2011 Peter Martischka, Primary Technology.
 
-			 Licensed under the Apache License, Version 2.0 (the "License");
-			 you may not use this file except in compliance with the License.
-			 You may obtain a copy of the License at
+			Licensed under the Apache License, Version 2.0 (the "License");
+			you may not use this file except in compliance with the License.
+			You may obtain a copy of the License at
 
 			 http://www.apache.org/licenses/LICENSE-2.0
 
-			 Unless required by applicable law or agreed to in writing, software
-			 distributed under the License is distributed on an "AS IS" BASIS,
-			 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-			 See the License for the specific language governing permissions and
-			 limitations under the License.
+			Unless required by applicable law or agreed to in writing, software
+			distributed under the License is distributed on an "AS IS" BASIS,
+			WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+			See the License for the specific language governing permissions and
+			limitations under the License.
 
-			 |@licend  The above is the entire license notice
-			 for the JavaScript code in this page.|
-			 */
+			|@licend  The above is the entire license notice
+			for the JavaScript code in this page.|
+			*/
 		</script>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
@@ -68,89 +68,130 @@
 				<div id="overlay-inner"></div>
 			</div>
 			<ul class="menu_left">
+				<!-- cursor -->
+				<li class="acl-write" id="cursorTool" data-key="cursor">
+					<a class="grouped-left" data-l10n-id="draw.toolbar.cursor.title">
+						<span class="buttonicon buttonicon-cursor"></span>
+					</a>
+				</li>
 				<!-- paint brush -->
 				<li class="acl-write" id="drawTool" data-key="draw">
-					<a class="grouped-left" data-l10n-id="draw.toolbar.draw.title"> <span class="buttonicon buttonicon-draw"></span> </a>
+					<a class="grouped-middle" data-l10n-id="draw.toolbar.draw.title">
+						<span class="buttonicon buttonicon-draw"></span>
+					</a>
 				</li>
 				<!-- Select Tool -->
 				<li class="acl-write" id="selectTool" data-key="select">
-					<a class="grouped-middle" data-l10n-id="draw.toolbar.select.title"> <span class="buttonicon buttonicon-select"></span> </a>
+					<a class="grouped-middle" data-l10n-id="draw.toolbar.select.title">
+						<span class="buttonicon buttonicon-select"></span>
+					</a>
 				</li>
 				<!-- pencil brush -->
 				<li class="acl-write" id="pencilTool" data-key="pencil">
-					<a class="grouped-middle" data-l10n-id="draw.toolbar.pencil.title"> <span class="buttonicon buttonicon-pencil"></span> </a>
+					<a class="grouped-middle" data-l10n-id="draw.toolbar.pencil.title">
+						<span class="buttonicon buttonicon-pencil"></span>
+					</a>
 				</li>
 
 				<!-- Goto to start of canvas -->
 				<li class="acl-write" id="textTool" data-key="text">
-					<a class="grouped-middle" data-l10n-id="draw.toolbar.text.title" title="Insert textbox"> <span class="buttonicon buttonicon-text"></span> </a>
+					<a class="grouped-middle" data-l10n-id="draw.toolbar.text.title" title="Insert textbox">
+						<span class="buttonicon buttonicon-text"></span>
+					</a>
 				</li>
 
 				<!-- color Selector Toggle -->
 				<li class="acl-write" id="colorToggle" data-key="color">
-					<a class="grouped-middle" data-l10n-id="draw.toolbar.colorToggle.title"> <span class="buttonicon buttonicon-color" style="opacity:0.5"> <div style="display:inline-block;width:5px; height:16px; background-color:red;margin:0;padding:0;float:left"></div> <div style="display:inline-block;width:5px; height:16px; background-color:blue;margin:0;padding:0;float:left"></div> <div style="display:inline-block;width:5px; height:16px; background-color:green;margin:0;padding:0;float:left"></div> </span> </a>
+					<a class="grouped-middle" data-l10n-id="draw.toolbar.colorToggle.title">
+						<span class="buttonicon buttonicon-color" style="opacity:0.5">
+							<div style="display:inline-block;width:5px; height:16px; background-color:red;margin:0;padding:0;float:left"></div>
+							<div style="display:inline-block;width:5px; height:16px; background-color:blue;margin:0;padding:0;float:left"></div>
+							<div style="display:inline-block;width:5px; height:16px; background-color:green;margin:0;padding:0;float:left"></div>
+						</span>
+					</a>
 				</li>
 
 				<li class="acl-write" id="clearImage" data-key="clear">
-					<a class="grouped-right" data-l10n-id="draw.toolbar.clearImage" class="clearCanvasPrompt" title="Clear Drawing"> <span class="buttonicon buttonicon-clearImage" style="background-color:transparent;background-image:none;border:dotted 1px black;margin:0;color:#000;height:14px;line-height:14px" >X</span> </a>
+					<a class="grouped-right" data-l10n-id="draw.toolbar.clearImage" class="clearCanvasPrompt" title="Clear Drawing">
+						<span class="buttonicon buttonicon-clearImage" style="background-color:transparent;background-image:none;border:dotted 1px black;margin:0;color:#000;height:14px;line-height:14px" >X</span>
+					</a>
 				</li>
 
 				<li class="acl-write" id="toggleBackground" data-key="clear">
-					<a class="grouped-left" data-l10n-id="draw.toolbar.toggleBackground" class="toggleBackground" title="Toggle Transparent Background"> <span class="buttonicon buttonicon-toggleBackground" style="background-color:#fff;background-image:none;border:solid 1px black;margin:0;height:14px"> </a>
+					<a class="grouped-left" data-l10n-id="draw.toolbar.toggleBackground" class="toggleBackground" title="Toggle Transparent Background">
+						<span class="buttonicon buttonicon-toggleBackground" style="background-color:#fff;background-image:none;border:solid 1px black;margin:0;height:14px">
+					</a>
 				</li>
 
 				<!-- Goto to start of canvas -->
 				<li class="acl-write" id="zeroTool" data-key="zero">
-					<a class="grouped-middle" data-l10n-id="draw.toolbar.zero.title" title="Reset Canvas Panning to 0,0"> <span class="buttonicon buttonicon-zero"></span> </a>
+					<a class="grouped-middle" data-l10n-id="draw.toolbar.zero.title" title="Reset Canvas Panning to 0,0">
+						<span class="buttonicon buttonicon-zero"></span>
+					</a>
 				</li>
 
 				<!-- Reset scaling -->
 				<li class="acl-write" id="scaleTool" data-key="scale">
-					<a class="grouped-middle" data-l10n-id="draw.toolbar.scale.title" title="Reset Canvas Scaling to 1:1"> <span class="buttonicon buttonicon-scale"></span> </a>
+					<a class="grouped-middle" data-l10n-id="draw.toolbar.scale.title" title="Reset Canvas Scaling to 1:1">
+						<span class="buttonicon buttonicon-scale"></span>
+					</a>
 				</li>
 
 				<!-- Zoom to fit -->
 				<li class="acl-write" id="fitTool" data-key="fit">
-					<a class="grouped-middle" data-l10n-id="draw.toolbar.fit.title" title="Zoom to fit contents"> <span class="buttonicon buttonicon-fit"></span> </a>
+					<a class="grouped-middle" data-l10n-id="draw.toolbar.fit.title" title="Zoom to fit contents">
+						<span class="buttonicon buttonicon-fit"></span>
+					</a>
 				</li>
 
 				<!-- Upload -->
 				<li class="acl-write" id="uploadImage" data-key="upload">
-					<a class="grouped-right" data-l10n-id="draw.toolbar.upload.title" title="Upload an Image"> <span class="buttonicon buttonicon-upload"></span> </a>
+					<a class="grouped-right" data-l10n-id="draw.toolbar.upload.title" title="Upload an Image">
+						<span class="buttonicon buttonicon-upload"></span>
+					</a>
 				</li>
 			</ul>
 			<ul class="menu_right">
 
 				<!-- settings -->
 				<li data-key="settings">
-					<a id="settingslink" class="grouped-left" data-l10n-id="draw.toolbar.settings.title"> <span class="grouped-left buttonicon buttonicon-settings"></span> </a>
+					<a id="settingslink" class="grouped-left" data-l10n-id="draw.toolbar.settings.title">
+						<span class="grouped-left buttonicon buttonicon-settings"></span>
+					</a>
 				</li>
 				<!-- import export -->
 				<li data-key="import_export">
-					<a id="importExport" class="grouped-middle" data-l10n-id="draw.toolbar.import_export.title"> <span class="buttonicon buttonicon-import_export"></span> </a>
+					<a id="importExport" class="grouped-middle" data-l10n-id="draw.toolbar.import_export.title">
+						<span class="buttonicon buttonicon-import_export"></span>
+					</a>
 				</li>
 				<!-- share & embed -->
 				<li data-key="embed">
-					<a id="embedlink" class="grouped-right" data-l10n-id="draw.toolbar.embed.title"> <span class="buttonicon buttonicon-embed"></span> </a>
+					<a id="embedlink" class="grouped-right" data-l10n-id="draw.toolbar.embed.title">
+						<span class="buttonicon buttonicon-embed"></span>
+					</a>
 				</li>
 
 				<!-- user stuff -->
 				<li class="separator"></li>
 				<li id="usericon" data-key="showusers">
-					<a data-l10n-id="draw.toolbar.showusers.title"> <span class="buttonicon buttonicon-showusers"></span> <span id="online_count">1</span> </a>
+					<a data-l10n-id="draw.toolbar.showusers.title">
+						<span class="buttonicon buttonicon-showusers"></span>
+						<span id="online_count">1</span>
+					</a>
 				</li>
 
 			</ul>
+		</div>
+		<div id="canvasPosition">
+			<span id="coordinates">0,0</span> (<span id="zoom">1</span>x)
 		</div>
 
 		<div id="settings" class="popup">
 			<h1 data-l10n-id="draw.settings.padSettings"></h1>
 			<div class="column">
 				<h2 data-l10n-id="draw.settings.ClearCanvas">Clear Canvas</h2>
-				<a>Warning - This will clear the canvas</a>
-				<button id="clearCanvas">
-					Okay, Clear it!
-				</button>
+				<a>Warning - This will clear the canvas</a><button id="clearCanvas">Okay, Clear it!</button>
 			</div>
 		</div>
 		<div id="embed" class="popup">
@@ -177,24 +218,30 @@
 			<h1 data-l10n-id="draw.importExport.import_export">Export</h1>
 			<div class="column">
 				<h2 data-l10n-id="draw.importExport.export"></h2>
-				<div>
-					<a id="exportSVG" target="_blank" class="exportlink">Export SVG</a>
-				</div>
-				<div>
-					<a id="exportPNG" target="_blank" class="exportlink">Export PNG</a>
-				</div>
+				<div><a id="exportSVG" target="_blank" class="exportlink">Export SVG</a></div>
+				<div><a id="exportPNG" target="_blank" class="exportlink">Export PNG</a></div>
+			</div>
+		</div>
+		<div id="userSettings" class="popup">
+			<div id="passwordPrompt">
+				<h1 data-l10n-id="draw.settings.passwordPrompt">Edit Password</h1>
+				<p>
+				Please enter your edit password below to edit this drawing.
+				</p>
+				<p>
+				<label for="password">Edit password:</label>
+				<input type="password" id="password">
+				<div id="passwordError"></div>
+				</p>
+				<button id="submitPassword">Submit</button>
 			</div>
 		</div>
 
 		<div id="lostConnection" class="hidden">
-			<p>
-				Lost connection to the server! Please refresh this page.
-			</p>
+			<p>Lost connection to the server! Please refresh this page.</p>
 		</div>
 		<div id="loading" class="hidden" style="display:block;">
-			<p>
-				Loading existing sketch...  Click and hold to access the colour wheel
-			</p>
+			<p>Loading existing sketch...	Click and hold to access the colour wheel</p>
 		</div>
 
 		<input type="file" id="imageInput" accept="image/*" />
@@ -205,9 +252,7 @@
 				<div id="colorpickerMover"></div>
 				<div id="colorpicker"></div>
 				<div id="opacity">
-					<div id="opacityLabel">
-						Opacity
-					</div>
+					<div id="opacityLabel">Opacity</div>
 					<input type="range" min="0" max="255" value="200" id="opacityRangeVal">
 				</div>
 			</div>
